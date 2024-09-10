@@ -185,6 +185,8 @@ namespace Pk3DSRNGTool
                 ntrclient.PressB(); L_NTRLog.Text = "B pressed";
                 await Task.Delay(Delay1);
                 ntrclient.PressB(); L_NTRLog.Text = "B pressed";
+                await Task.Delay(Delay1);
+                ntrclient.PressB(); L_NTRLog.Text = "B pressed";
                 await Task.Delay(Delay5);
                 // Dialogue-2
                 ntrclient.PressB(); L_NTRLog.Text = "B pressed";
