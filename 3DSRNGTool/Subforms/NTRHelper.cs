@@ -168,18 +168,26 @@ namespace Pk3DSRNGTool
                 // Confirm gender
                 ntrclient.PressA(); L_NTRLog.Text = "A pressed - 2";
                 await Task.Delay(Delay5);
+                ntrclient.PressA(); L_NTRLog.Text = "A pressed - 3";
+                await Task.Delay(Delay5);
                 StartFrame.Value = ++CurrFrame;
                 // Keyboard Input
                 ntrclient.TouchCenter(); L_NTRLog.Text = "Character input";
                 await Task.Delay(Delay1);
-                // Dialogue-1 
+                ntrclient.TouchCenter(); L_NTRLog.Text = "Character input";
+                await Task.Delay(Delay5);
+                // Dialogue-1
+                ntrclient.Confirm(JPN.Checked); L_NTRLog.Text = "Enter pressed";
+                await Task.Delay(Delay1);
                 ntrclient.Confirm(JPN.Checked); L_NTRLog.Text = "Enter pressed";
                 await Task.Delay(Delay4);
                 // Discard
                 ntrclient.PressB(); L_NTRLog.Text = "B pressed";
+                await Task.Delay(Delay1);
+                ntrclient.PressB(); L_NTRLog.Text = "B pressed";
                 await Task.Delay(Delay5);
                 // Dialogue-2
-                ntrclient.PressA(); L_NTRLog.Text = "A pressed";
+                ntrclient.PressB(); L_NTRLog.Text = "B pressed";
                 await Task.Delay(Delay1);
             }
             B_Stop_Click(null, null);
