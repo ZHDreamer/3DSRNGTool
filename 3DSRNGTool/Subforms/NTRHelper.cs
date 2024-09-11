@@ -132,11 +132,16 @@ namespace Pk3DSRNGTool
 
         private bool Botting => B_Stop.Enabled;
         private int delaylevel => 5 - (int)Speed.Value;
-        private int Delay1 => 500 + 100 * delaylevel;
-        private int Delay2 => 3800 + 200 * delaylevel;
-        private int Delay3 => 2100 + 100 * delaylevel;
-        private int Delay4 => 5000 + 200 * delaylevel;
-        private int Delay5 => 1500 + 100 * delaylevel;
+        private int Delay1 => 500;
+        private int Delay2 => 3800;
+        private int Delay3 => 2100;
+        private int Delay4 => 5000;
+        private int Delay5 => 1500;
+        // private int Delay1 => 500 + 100 * delaylevel;
+        // private int Delay2 => 3800 + 200 * delaylevel;
+        // private int Delay3 => 2100 + 100 * delaylevel;
+        // private int Delay4 => 5000 + 200 * delaylevel;
+        // private int Delay5 => 1500 + 100 * delaylevel;
 
         private async void G7IDBot()
         {
@@ -168,25 +173,36 @@ namespace Pk3DSRNGTool
                 // Confirm gender
                 ntrclient.PressA(); L_NTRLog.Text = "A pressed - 2";
                 await Task.Delay(Delay5);
-                ntrclient.PressA(); L_NTRLog.Text = "A pressed - 3";
-                await Task.Delay(Delay5);
+
                 StartFrame.Value = ++CurrFrame;
+                for (int i = 0; i < delaylevel; i++)
+                {
+                    ntrclient.PressA(); L_NTRLog.Text = "A pressed " + i;
+                    await Task.Delay(100);
+                }
                 // Keyboard Input
-                ntrclient.TouchCenter(); L_NTRLog.Text = "Character input";
-                await Task.Delay(Delay1);
+                for (int i = 0; i < delaylevel; i++)
+                {
+                    ntrclient.TouchCenter(); L_NTRLog.Text = "Character input " + i;
+                    await Task.Delay(100);
+                }
                 ntrclient.TouchCenter(); L_NTRLog.Text = "Character input";
                 await Task.Delay(Delay5);
                 // Dialogue-1
                 ntrclient.Confirm(JPN.Checked); L_NTRLog.Text = "Enter pressed";
-                await Task.Delay(Delay1);
-                ntrclient.Confirm(JPN.Checked); L_NTRLog.Text = "Enter pressed";
+                for (int i = 0; i < delaylevel; i++)
+                {
+                    ntrclient.Confirm(JPN.Checked); L_NTRLog.Text = "Enter pressed " + i;
+                    await Task.Delay(100);
+                }
                 await Task.Delay(Delay4);
                 // Discard
                 ntrclient.PressB(); L_NTRLog.Text = "B pressed";
-                await Task.Delay(Delay1);
-                ntrclient.PressB(); L_NTRLog.Text = "B pressed";
-                await Task.Delay(Delay1);
-                ntrclient.PressB(); L_NTRLog.Text = "B pressed";
+                for (int i = 0; i < delaylevel; i++)
+                {
+                    ntrclient.PressB(); L_NTRLog.Text = "B pressed " + i;
+                    await Task.Delay(100);
+                }
                 await Task.Delay(Delay5);
                 // Dialogue-2
                 ntrclient.PressB(); L_NTRLog.Text = "B pressed";
